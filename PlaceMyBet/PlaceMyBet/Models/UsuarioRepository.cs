@@ -9,16 +9,19 @@ namespace PlaceMyBet.Models
 {
     public class UsuarioRepository
     {
-
+        /*
+        
         private MySqlConnection Connect()
         {
             string connString = "Server=127.0.0.1;Port=3306;Database=placemybet;Uid=root;password=;SslMode=none";
             MySqlConnection con = new MySqlConnection(connString);
             return con;
         }
-
+        */
         internal List<Usuario> Retrieve()
         {
+            /*
+            
 
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
@@ -44,9 +47,15 @@ namespace PlaceMyBet.Models
             catch (MySqlException c)
             {
                 Debug.WriteLine("Se ha producido un error de conexion");
+
+            */
+                
                 return null;
             }
         }
+
+    
+
     }
 
-}
+//}

@@ -7,16 +7,17 @@ namespace PlaceMyBet.Models
 {
     public class Usuario
     {
-        public Usuario(int idUsuario, string Email, string Nombre, string Apellidos, int Edad)
+        
+        public Usuario(int UsuarioId, string Email, string Nombre, string Apellidos, int Edad)
         {
-            this.idUsuario = idUsuario;
+            this.UsuarioId = UsuarioId;
             this.Email = Email;
             this.Nombre = Nombre;
             this.Apellidos = Apellidos;
             this.Edad = Edad;
         }
 
-        public int idUsuario { get; set; }
+        public int UsuarioId { get; set; }
 
         public string Email { get; set; }
 
@@ -25,5 +26,13 @@ namespace PlaceMyBet.Models
         public string Apellidos { get; set; }
 
         public int Edad { get; set; }
+
+        public CBancaria CBancaria { get; set; }
+
+        
+
+    
+
+        
     }
 }

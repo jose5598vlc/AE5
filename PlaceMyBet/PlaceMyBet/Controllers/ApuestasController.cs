@@ -11,7 +11,7 @@ namespace PlaceMyBet.Controllers
     public class ApuestasController : ApiController
     {
         // GET: api/Apuestas
-        public IEnumerable<ApuestaDTO> Get()
+        public IEnumerable<Apuesta> Get()
         {
             /*
             return new string[] { "value1", "value2" };
@@ -20,7 +20,7 @@ namespace PlaceMyBet.Controllers
             /*
             List<Apuesta> apuesta = repo.Retrieve();
             */
-            List<ApuestaDTO> apuesta = repo.RetrieveDTO();
+            List<Apuesta> apuesta = repo.Retrieve();
             return apuesta;
         }
 
@@ -37,28 +37,28 @@ namespace PlaceMyBet.Controllers
 
         // GET: api/Apuestas?idUsuario=Email
 
-        public IEnumerable<ApuestaUsuario> GetApuestaUsuarios(string Email)
-        {
-            var repo = new ApuestaRepository();
-            List<ApuestaUsuario> apuestas = repo.RetrieveEmail(Email);
-            return apuestas;
-        }
+       // public IEnumerable<ApuestaUsuario> GetApuestaUsuarios(string Email)
+       // {
+           // var repo = new ApuestaRepository();
+           // List<ApuestaUsuario> apuestas = repo.RetrieveEmail(Email);
+           // return apuestas;
+       // }
 
         // GET: api/Apuestas?tipoMercado=Mercado
 
-        public IEnumerable<ApuestaMercado> GetApuestaMercado(double tipoMercado)
-        {
-            var repo = new ApuestaRepository();
-            List<ApuestaMercado> apuestas = repo.RetrieveApuestaMercado(tipoMercado);
-            return apuestas;
-        }
+        //public IEnumerable<ApuestaMercado> GetApuestaMercado(double tipoMercado)
+       // {
+           // var repo = new ApuestaRepository();
+           // List<ApuestaMercado> apuestas = repo.RetrieveApuestaMercado(tipoMercado);
+           // return apuestas;
+       // }
 
         // POST: api/Apuestas
-        public void Post([FromBody] Apuesta apuesta)
-        {
-            var repo = new ApuestaRepository();
-            repo.Save(apuesta);
-        }
+       // public void Post([FromBody] Apuesta apuesta)
+      //  {
+        //    var repo = new ApuestaRepository();
+        //    repo.Save(apuesta);
+       // }
 
         // PUT: api/Apuestas/5
         public void Put(int id, [FromBody]string value)

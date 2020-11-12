@@ -10,6 +10,31 @@ namespace PlaceMyBet.Models
     public class ApuestaRepository
     {
 
+        internal List<Apuesta> Retrieve()
+        {
+            List<Apuesta> apuestas = new List<Apuesta>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                apuestas = context.Apuestas.ToList();
+            }
+            return apuestas;
+        }
+
+        internal Apuesta Retrieve(int id)
+        {
+            Apuesta apuesta;
+
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                apuesta = context.Apuestas
+                    .Where(s => s.ApuestaId == id)
+                    .FirstOrDefault();
+            }
+            return apuesta;
+        }
+
+
+        /*
         private MySqlConnection Connect()
         {
             string connString = "Server=127.0.0.1;Port=3306;Database=placemybet;Uid=root;password=;SslMode=none";
@@ -19,6 +44,7 @@ namespace PlaceMyBet.Models
 
         internal List<Apuesta> Retrieve()
         {
+            
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = " Select * from Apuesta";
@@ -44,12 +70,14 @@ namespace PlaceMyBet.Models
             catch (MySqlException c)
             {
                 Debug.WriteLine("Se ha producido un error de conexion");
+                
                 return null;
             }
         }
 
         internal List<ApuestaDTO> RetrieveDTO()
         {
+        
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = " Select * from Apuesta";
@@ -75,12 +103,14 @@ namespace PlaceMyBet.Models
             catch (MySqlException c)
             {
                 Debug.WriteLine("Se ha producido un error de conexion");
+                
                 return null;
             }
         }
 
         internal void Save(Apuesta a)
         {
+    
             using (MySqlConnection con = Connect())
             {
                 MySqlCommand command = con.CreateCommand();
@@ -159,9 +189,11 @@ namespace PlaceMyBet.Models
             }
 
         }
+        
 
         internal List<ApuestaUsuario> RetrieveEmail(string Email)
         {
+        
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "SELECT a.tipoApuesta, a.cuota, a.dineroApostado, e.idEvento from apuesta as a INNER JOIN mercado as m ON a.idMercado=m.idMercado INNER JOIN evento as e ON m.idMercado=e.idEvento WHERE a.email=@email;";
@@ -187,12 +219,14 @@ namespace PlaceMyBet.Models
             catch (MySqlException e)
             {
                 Debug.WriteLine("Se ha producido un error de conexión");
+                
                 return null;
             }
         }
 
         internal List<ApuestaMercado> RetrieveApuestaMercado(double tipoMercado)
         {
+    
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = "SELECT m.tipoMercado, a.tipoApuesta, a.cuota, a.dineroApostado, a.email from apuesta as a INNER JOIN mercado as m INNER JOIN usuario as u WHERE m.tipoMercado=@tipoMercado;";
@@ -218,13 +252,14 @@ namespace PlaceMyBet.Models
             catch (MySqlException e)
             {
                 Debug.WriteLine("Se ha producido un error de conexión");
+                
                 return null;
             }
         }
 
 
 
-
+    */
     }
 
 

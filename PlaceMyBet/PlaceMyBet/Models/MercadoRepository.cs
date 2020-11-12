@@ -10,6 +10,36 @@ namespace PlaceMyBet.Models
     public class MercadoRepository
     {
 
+        internal List<Mercado> Retrieve()
+        {
+            List<Mercado> mercados = new List<Mercado>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercados = context.Mercados.ToList();
+            }
+            return mercados;
+        }
+
+        internal Mercado Retrieve(int id)
+        {
+            Mercado mercado;
+
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercado = context.Mercados
+                    .Where(s => s.MercadoId == id)
+                    .FirstOrDefault();
+            }
+            return mercado;
+        }
+
+
+
+
+
+
+
+        /*
         private MySqlConnection Connect()
         {
             string connString = "Server=127.0.0.1;Port=3306;Database=placemybet;Uid=root;password=;SslMode=none";
@@ -19,6 +49,7 @@ namespace PlaceMyBet.Models
 
         internal List<Mercado> Retrieve()
         {
+            
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = " Select * from Mercado";
@@ -43,12 +74,14 @@ namespace PlaceMyBet.Models
             catch (MySqlException c)
             {
                 Debug.WriteLine("Se ha producido un error de conexion");
+                
                 return null;
             }
         }
 
         internal List<MercadoDTO> RetrieveDTO()
         {
+        
             MySqlConnection con = Connect();
             MySqlCommand command = con.CreateCommand();
             command.CommandText = " Select * from Mercado";
@@ -73,8 +106,11 @@ namespace PlaceMyBet.Models
             catch (MySqlException c)
             {
                 Debug.WriteLine("Se ha producido un error de conexion");
+                
                 return null;
             }
         }
+        */
     }
+    
 }

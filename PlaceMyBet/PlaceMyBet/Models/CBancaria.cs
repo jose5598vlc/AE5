@@ -7,24 +7,31 @@ namespace PlaceMyBet.Models
 {
     public class CBancaria
     {
-        public CBancaria(int idCBancaria, double saldoBanco, string nombreBanco, int numtarCredito, int idUsuario)
+        
+
+        
+        public CBancaria(int CBancariaId, double saldoBanco, string nombreBanco, string numtarCredito, int UsuarioId)
         {
-            this.idCBancaria = idCBancaria;
+            this.CBancariaId = CBancariaId;
             this.saldoBanco = saldoBanco;
             this.nombreBanco = nombreBanco;
             this.numtarCredito = numtarCredito;
-            this.idUsuario = idUsuario;
+            this.UsuarioId = UsuarioId;
         }
 
-        public int idCBancaria { get; set; }
+        public int CBancariaId { get; set; }
 
         public double saldoBanco { get; set; }
 
         public string nombreBanco { get; set; }
 
-        public int numtarCredito { get; set; }
+        public string numtarCredito { get; set; }
 
-        public int idUsuario { get; set; }
+        public int UsuarioId { get; set; }
+
+        public Usuario Usuario { get; set; }
+
+    
 
     }
 }
