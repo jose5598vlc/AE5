@@ -20,20 +20,42 @@ namespace PlaceMyBet.Models
             return mercados;
         }
 
+        internal List<MercadoDTO> RetrieveDTO()
+        {
+            List<MercadoDTO> mercados = new List<MercadoDTO>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                mercados = context.Mercados.Select(p => ToDTO(p)).ToList();
+
+            }
+            return mercados;
+        }
+
+        public MercadoDTO ToDTO(Mercado m)
+        {
+            return new MercadoDTO(m.tipoMercado, m.infocuotaOver, m.infocuotaUnder);
+        }
+
         internal Mercado Retrieve(int id)
         {
-            Mercado mercado;
+            Mercado mercados;
 
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                mercado = context.Mercados
+                mercados = context.Mercados
                     .Where(s => s.MercadoId == id)
                     .FirstOrDefault();
             }
-            return mercado;
+            return mercados;
         }
 
-
+        internal void save(Mercado m)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.Mercados.Add(m);
+            context.SaveChanges();
+            
+        }
 
 
 

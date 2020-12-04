@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,26 +14,61 @@ namespace PlaceMyBet.Models
         internal List<Apuesta> Retrieve()
         {
             List<Apuesta> apuestas = new List<Apuesta>();
+            
+
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                apuestas = context.Apuestas.ToList();
+                apuestas = context.Apuestas.Include(p => p.Mercados).ToList();
+
+
             }
             return apuestas;
         }
 
-        internal Apuesta Retrieve(int id)
+        internal List<ApuestaDTO> RetrieveDTO()
         {
-            Apuesta apuesta;
+            List<ApuestaDTO> apuestas = new List<ApuestaDTO>();
 
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
-                apuesta = context.Apuestas
+                apuestas = context.Apuestas.Select(p => ToDTO(p)).ToList();
+               
+
+            }
+            return apuestas;
+        }
+
+        public ApuestaDTO ToDTO(Apuesta a)
+        {
+            return new ApuestaDTO(a.UsuarioId, a.tipoApuesta, a.cuota, a.dineroApostado);
+        }
+
+        internal Apuesta Retrieve(int id)
+        {
+            Apuesta apuestas;
+
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                apuestas = context.Apuestas
                     .Where(s => s.ApuestaId == id)
                     .FirstOrDefault();
             }
-            return apuesta;
+            return apuestas;
         }
 
+        internal void save (Apuesta a)
+        {
+
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.Apuestas.Add(a);
+            
+            context.SaveChanges();
+
+            
+            
+        }
+
+        
 
         /*
         private MySqlConnection Connect()

@@ -36,36 +36,34 @@ namespace PlaceMyBet.Models
         public Mercado Mercados { get; set; }
     }
 
-    /*
+    
     public class ApuestaDTO
     {
-        public ApuestaDTO(bool tipoApuesta, double cuota, double dineroApostado, string fecha, int idMercado, string Email)
+        public ApuestaDTO(string UsuarioId, Boolean tipoApuesta, double cuota, double dineroApostado)
         {
-
+            this.UsuarioId = UsuarioId;
             this.tipoApuesta = tipoApuesta;
             this.cuota = cuota;
             this.dineroApostado = dineroApostado;
-            this.fecha = fecha;
-            this.idMercado = idMercado;
-            this.Email = Email;
+            
         }
 
 
 
-        public bool tipoApuesta { get; set; }
+       
+        public string UsuarioId { get; set; }
+
+        public Boolean tipoApuesta { get; set; }
 
         public double cuota { get; set; }
 
+
         public double dineroApostado { get; set; }
 
-        public string fecha { get; set; }
-
-
-        public int idMercado { get; set; }
-
-        public string Email { get; set; }
+        
     }
 
+    /*
     public class ApuestaUsuario
     {
         public ApuestaUsuario(Boolean tipoApuesta, double cuota, double dineroApostado, int idEvento)

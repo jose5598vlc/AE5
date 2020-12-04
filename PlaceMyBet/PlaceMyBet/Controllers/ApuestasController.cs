@@ -54,11 +54,11 @@ namespace PlaceMyBet.Controllers
        // }
 
         // POST: api/Apuestas
-       // public void Post([FromBody] Apuesta apuesta)
-      //  {
-        //    var repo = new ApuestaRepository();
-        //    repo.Save(apuesta);
-       // }
+        public void Post([FromBody] Apuesta apuestas)
+       {
+            var repo = new ApuestaRepository();
+            repo.save(apuestas);
+        }
 
         // PUT: api/Apuestas/5
         public void Put(int id, [FromBody]string value)

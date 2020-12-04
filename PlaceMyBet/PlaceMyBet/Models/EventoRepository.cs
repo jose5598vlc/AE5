@@ -19,6 +19,17 @@ namespace PlaceMyBet.Models
             return eventos;
         }
 
+        internal List<EventoDTO> RetrieveDTO()
+        {
+            List<EventoDTO> eventos = new List<EventoDTO>();
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                eventos = context.Eventos.Select(p => ToDTO(p)).ToList();
+
+            }
+            return eventos;
+        }
+
         internal void Save(Evento e)
         {
             PlaceMyBetContext context = new PlaceMyBetContext();
@@ -28,6 +39,44 @@ namespace PlaceMyBet.Models
 
         }
 
+        public EventoDTO ToDTO(Evento e)
+        {
+            return new EventoDTO(e.equipoLocal, e.equipoVisitante);
+        }
+
+        // un evento que permita modificar nombre de equipos a partir del ID
+        internal void update(int id, EventoDTO e)
+        {
+            Evento eventos;
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                eventos = context.Eventos
+                    .Where(s => s.EventoId == id)
+                    .FirstOrDefault();
+                eventos.equipoLocal = e.equipoLocal;
+                eventos.equipoVisitante = e.equipoVisitante;
+                //actualiza 
+                context.Eventos.Update(eventos);
+                context.SaveChanges();
+            }
+        }
+
+        // delete 
+        
+       
+        //internal void delete(int id)
+       // {
+            
+         //   PlaceMyBetContext context = new PlaceMyBetContext();
+
+
+           // var Evento = new Evento { EventoId = id }; 
+            
+
+           // context.Eventos.Attach(Evento);
+           // context.Eventos.Remove(Evento);
+           // context.SaveChanges();
+      //  }
         /*
         private MySqlConnection Connect()
         {

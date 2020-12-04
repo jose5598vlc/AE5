@@ -29,15 +29,15 @@ namespace PlaceMyBet.Models
 
     }
 
-    /*
+    
     public class EventoDTO
     {
-        public EventoDTO(string equipoLocal, string equipoVisitante, string fecha)
+        public EventoDTO(string equipoLocal, string equipoVisitante)
         {
             
             this.equipoLocal = equipoLocal;
             this.equipoVisitante = equipoVisitante;
-            this.fecha = fecha;
+            
         }
 
        
@@ -45,10 +45,10 @@ namespace PlaceMyBet.Models
 
         public string equipoVisitante { get; set; }
 
-        public string fecha { get; set; }
+        
 
     
 
     }
-    */
+    
 }

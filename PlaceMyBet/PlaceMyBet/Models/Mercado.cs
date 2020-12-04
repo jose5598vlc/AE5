@@ -38,7 +38,7 @@ namespace PlaceMyBet.Models
         public List<Apuesta> Apuestas { get; set; }
 
     }
-    /*
+    
     public class MercadoDTO
     {
         public MercadoDTO(double tipoMercado, double infocuotaOver, double infocuotaUnder)
@@ -59,5 +59,5 @@ namespace PlaceMyBet.Models
 
 
     }
-    */
+    
 }
