@@ -32,10 +32,27 @@ namespace PlaceMyBet.Controllers
             */
             return null;
         }
+        /*
+        // GET: api/EventosExamen?val={nombre}
 
+            public EventosExamen Retrieve(Evento e)
+        {
+            List<EventosExamen> eventos = new List<EventosExamen>();
+            return eventos;
+        }
+        */
         // POST: api/Eventos
         public void Post([FromBody]string value)
         {
+        }
+
+        // ejercicio 2 examen controller
+        // POST: api/EventosExamen
+
+            public void Post([FromBody] EventosExamen examen)
+        {
+            var repo = new EventoRepository();
+            repo.SaveEventosExamen(examen);
         }
 
         // PUT: api/Eventos/5

@@ -44,6 +44,9 @@ namespace PlaceMyBet.Models
             return new EventoDTO(e.equipoLocal, e.equipoVisitante);
         }
 
+       
+      
+
         // un evento que permita modificar nombre de equipos a partir del ID
         internal void update(int id, EventoDTO e)
         {
@@ -61,22 +64,48 @@ namespace PlaceMyBet.Models
             }
         }
 
-        // delete 
+        // ejercicio 1 examen
         
-       
+        // Listado de todos los mercados de este evento, donde para cada mercado se muestre el identificador, la cuota over y la cuota under.
+        
+
+        internal List<EventosExamen> RetrieveEventosExamen()
+        {
+            
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+               
+            }
+            return null;
+            
+        }
+
+        //ejercicio 2 examen 
+        internal void SaveEventosExamen(EventosExamen examen)
+        {
+            PlaceMyBetContext context = new PlaceMyBetContext();
+            context.examen.Add(examen);
+            context.SaveChanges();
+
+        }
+        
+        
+        // delete 
+
+
         //internal void delete(int id)
-       // {
-            
-         //   PlaceMyBetContext context = new PlaceMyBetContext();
+        // {
+
+        //   PlaceMyBetContext context = new PlaceMyBetContext();
 
 
-           // var Evento = new Evento { EventoId = id }; 
-            
+        // var Evento = new Evento { EventoId = id }; 
 
-           // context.Eventos.Attach(Evento);
-           // context.Eventos.Remove(Evento);
-           // context.SaveChanges();
-      //  }
+
+        // context.Eventos.Attach(Evento);
+        // context.Eventos.Remove(Evento);
+        // context.SaveChanges();
+        //  }
         /*
         private MySqlConnection Connect()
         {

@@ -15,6 +15,8 @@ namespace PlaceMyBet.Models
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<CBancaria> CBancaria { get; set; }
 
+        public DbSet<EventosExamen> examen { get; set; }
+
 
         public PlaceMyBetContext()
         {

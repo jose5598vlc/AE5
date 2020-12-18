@@ -9,7 +9,7 @@ namespace PlaceMyBet.Models
     {
 
 
-        
+
         public Evento(int EventoId, string equipoLocal, string equipoVisitante, string fecha)
         {
             this.EventoId = EventoId;
@@ -29,26 +29,64 @@ namespace PlaceMyBet.Models
 
     }
 
-    
+
     public class EventoDTO
     {
         public EventoDTO(string equipoLocal, string equipoVisitante)
         {
-            
+
             this.equipoLocal = equipoLocal;
             this.equipoVisitante = equipoVisitante;
-            
+
         }
 
-       
+
         public string equipoLocal { get; set; }
 
         public string equipoVisitante { get; set; }
 
-        
 
-    
+
+
 
     }
+
+    //ejercicio 2 examen
+    public class EventosExamen {
+
+        public EventosExamen(string equipoLocal, string equipoVisitante, double tipoMercado, double infocuotaOver, double infocuotaUnder, double dineroapostadoOver, double dineroapostadoUnder)
+        {
+            this.equipoLocal = equipoLocal;
+            this.equipoVisitante = equipoVisitante;
+            this.tipoMercado = tipoMercado;
+            this.infocuotaOver = infocuotaOver;
+            this.infocuotaUnder = infocuotaUnder;
+            this.dineroapostadoOver = dineroapostadoOver;
+            this.dineroapostadoUnder = dineroapostadoUnder;
+
+        }
+
+        public string equipoLocal { get; set; }
+        public string equipoVisitante { get; set; }
+       
+
+        public double tipoMercado { get; set; }
+
+        public double infocuotaOver { get; set; }
+
+        public double infocuotaUnder { get; set; }
+
+        public double dineroapostadoOver { get; set; }
+
+        public double dineroapostadoUnder { get; set; }
+
+
+
+    }
+
+     
+
+
+
     
 }
