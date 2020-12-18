@@ -34,6 +34,8 @@ namespace PlaceMyBet.Models
         public string UsuarioId { get; set; }
 
         public Mercado Mercados { get; set; }
+
+        public Usuario Usuarios { get; set; }
     }
 
     

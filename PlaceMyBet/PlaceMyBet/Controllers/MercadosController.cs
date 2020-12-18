@@ -27,12 +27,11 @@ namespace PlaceMyBet.Controllers
         // GET: api/Mercados/5
         public Mercado Get(int id)
         {
-            /*
+            
             var repo = new MercadoRepository();
-            Mercado m = repo.Retrieve();
+            Mercado m = repo.Retrieve(id);
             return m;
-            */
-            return null;
+                       
         }
 
         // POST: api/Mercados
@@ -41,15 +40,20 @@ namespace PlaceMyBet.Controllers
             var repo = new MercadoRepository();
             repo.save(mercados);
         }
+        
 
         // PUT: api/Mercados/5
+        /*
         public void Put(int id, [FromBody]string value)
         {
         }
+        */
 
         // DELETE: api/Mercados/5
+        /*
         public void Delete(int id)
         {
         }
+        */
     }
 }

@@ -27,12 +27,12 @@ namespace PlaceMyBet.Controllers
         // GET: api/Apuestas/5
         public Apuesta Get(int id)
         {
-            /*
+            
             var repo = new ApuestaRepository();
-            Apuesta a = repo.Retrieve();
+            Apuesta a = repo.Retrieve(id);
             return a;
-            */
-            return null;
+            
+            
         }
 
         // GET: api/Apuestas?idUsuario=Email
