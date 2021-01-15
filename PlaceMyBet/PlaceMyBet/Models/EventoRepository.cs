@@ -62,21 +62,21 @@ namespace PlaceMyBet.Models
         }
 
         // delete 
-        
-       
+
+
         //internal void delete(int id)
-       // {
-            
-         //   PlaceMyBetContext context = new PlaceMyBetContext();
+        // {
+
+        //   PlaceMyBetContext context = new PlaceMyBetContext();
 
 
-           // var Evento = new Evento { EventoId = id }; 
-            
+        // var Evento = new Evento { EventoId = id }; 
 
-           // context.Eventos.Attach(Evento);
-           // context.Eventos.Remove(Evento);
-           // context.SaveChanges();
-      //  }
+
+        // context.Eventos.Attach(Evento);
+        // context.Eventos.Remove(Evento);
+        // context.SaveChanges();
+        //  }
         /*
         private MySqlConnection Connect()
         {
@@ -116,6 +116,33 @@ namespace PlaceMyBet.Models
                 return null;
             }
         }
+
+        /*
+         * 
+         * var modelorepas = context.eventos
+
+.where(x => x.EventoId == eventoid && x.equipoLocal == equipolocal && x.equipoVisitante == equipovisitante)
+.select(x => new RepasEvento {
+
+EventoId = x.EventoId,
+equipoLocal = x.equipoLocal,
+equipoVisitante = x.equipoVisitante
+}).ToList();
+
+DE VARIAS TABLAS 
+
+var query = (from s in context.Stock
+             join cs in context.CodeStock on s.IdStock equals cs.IdStock
+             join os in context.OutStock on s.IdStock equals os.IdStock
+             where s.Date >= DateTime.Parse("02/12/2014) && s.Date <= DateTime.Parse("03/12/2014")
+             select new 
+             { 
+                CodeStock = s.CodeStock, 
+                Date = s.Date, 
+                Amount = cs.mount_InStock 
+             }).ToList();
+
+        *
 
         internal List<EventoDTO> RetrieveDTO()
         {
