@@ -35,6 +35,16 @@ namespace PlaceMyBet.Controllers
             
         }
 
+        // controller del examen tema2
+        //GET: api/Apuestas?apuestaexamen
+
+            public ApuestaExamen Get()
+        {
+            var repo = new ApuestaRepository();
+            ApuestaExamen a = repo.RetrieveExamen();
+            return a;
+        }
+
         // GET: api/Apuestas?idUsuario=Email
 
        // public IEnumerable<ApuestaUsuario> GetApuestaUsuarios(string Email)

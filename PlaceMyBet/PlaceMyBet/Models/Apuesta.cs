@@ -65,6 +65,33 @@ namespace PlaceMyBet.Models
         
     }
 
+    // ejercicio 1 examen t2, dado el nombre de un equipo recuperar listado de apuestas en las que este involucrado el equipo
+    public class ApuestaExamen
+    {
+        public ApuestaExamen(int ApuestaId, Boolean tipoApuesta, double cuota, double dineroApostado, DateTime fecha, int MercadoId)
+        {
+            this.ApuestaId = ApuestaId;
+            this.tipoApuesta = tipoApuesta;
+            this.cuota = cuota;
+            this.dineroApostado = dineroApostado;
+            this.fecha = fecha;
+            this.MercadoId = MercadoId;
+        }
+
+
+        public int ApuestaId { get; set; }
+        public Boolean tipoApuesta { get; set; }
+
+        public double cuota { get; set; }
+
+        public double dineroApostado { get; set; }
+
+        public DateTime fecha { get; set; }
+
+        public int MercadoId { get; set; }
+
+    }
+
     /*
     public class ApuestaUsuario
     {

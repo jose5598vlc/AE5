@@ -14,7 +14,7 @@ namespace PlaceMyBet.Models
         internal List<Apuesta> Retrieve()
         {
             List<Apuesta> apuestas = new List<Apuesta>();
-            
+
 
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
@@ -32,7 +32,7 @@ namespace PlaceMyBet.Models
             using (PlaceMyBetContext context = new PlaceMyBetContext())
             {
                 apuestas = context.Apuestas.Select(p => ToDTO(p)).ToList();
-               
+
 
             }
             return apuestas;
@@ -56,19 +56,40 @@ namespace PlaceMyBet.Models
             return apuestas;
         }
 
-        internal void save (Apuesta a)
+        internal void save(Apuesta a)
         {
 
             PlaceMyBetContext context = new PlaceMyBetContext();
             context.Apuestas.Add(a);
-            
+
             context.SaveChanges();
 
-            
-            
+
+
         }
 
-        
+
+        // ejercicio 1 tema 2 examen 
+        internal List<ApuestaExamen> RetrieveExamen()
+        {
+
+
+            List<ApuestaExamen> apuestas = new List<ApuestaExamen>();
+
+
+            using (PlaceMyBetContext context = new PlaceMyBetContext())
+            {
+                apuestas = context.Apuestas.ToList();
+
+
+
+            }
+            return apuestas;
+
+        }
+
+
+
 
         /*
         private MySqlConnection Connect()
@@ -297,6 +318,5 @@ namespace PlaceMyBet.Models
 
     */
     }
-
-
 }
+
